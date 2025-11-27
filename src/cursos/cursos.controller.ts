@@ -30,5 +30,10 @@ export class CursosController {
   remove(@Param('id') id: string) {
     return this.cursosService.remove(id);
   }
+  
+  @Post('Horas-de-estudio-semanal')
+  notas(@Body() recuestany: any) {
+    return this.cursosService.notas(recuestany);
+  }
 }
 

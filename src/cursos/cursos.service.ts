@@ -36,5 +36,38 @@ export class CursosService {
     if (!category) return null;
     return this.cursoRepository.remove(category);
   }
+  notas(recuestany: any) {
+        const horasPorDia = recuestany.horasPorDia; 
+        let contador= 0;
+        let suma=0;
+        for (const hora of horasPorDia) {
+            contador++;
+            suma += hora;
+           
+        }
+        const promedio = suma/7;
+        if(promedio < 1) {
+            return {
+                message: "Estás estudiando muy poco"
+            }
+        }else if(promedio <= 3) {
+            return {
+                message: "Buen ritmo de estudio"
+            }
+        }else {
+            return{
+                 message: "Excelente dedicación"
+            }
+        }
+
+
+
+
+
+
+  }
+
+  
+
 }
 
